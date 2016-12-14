@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="goodandgenerous">
+  <database-model serializer="dbm" rdbms="HSQLDB" format-version="4.0">
+    <root id="1"/>
+    <database id="2" parent="1" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="5" parent="2" name="SYSTEM_LOBS"/>
+    <table id="6" parent="4" name="CATEGORY"/>
+    <table id="7" parent="4" name="DAILY_JOB_LOG"/>
+    <table id="8" parent="4" name="EVENT_QUEUE"/>
+    <table id="9" parent="4" name="GENEROUS"/>
+    <table id="10" parent="4" name="HOST"/>
+    <table id="11" parent="4" name="IMMEDIATELY_JOB_LOG"/>
+    <table id="12" parent="4" name="IMMIGRANT"/>
+    <table id="13" parent="4" name="IMMIGRANT_RELATIVE"/>
+    <table id="14" parent="4" name="JOURNAL"/>
+    <table id="15" parent="4" name="MATCH"/>
+    <table id="16" parent="4" name="MONEY"/>
+    <table id="17" parent="4" name="PUBLISHER"/>
+    <table id="18" parent="4" name="SKILL"/>
+    <table id="19" parent="4" name="SKILL_LEVEL"/>
+    <table id="20" parent="4" name="SUBSCRIPTION"/>
+    <table id="21" parent="4" name="USER"/>
+    <column id="22" parent="6" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="6" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="24" parent="6" name="SYS_PK_10092">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="7" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="7" name="EVENT_ID">
+      <Position>2</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="7" name="USER_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="28" parent="7" name="SYS_PK_10097">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="7" name="FK_DP3MP9E37PSF19FXLT4UIXFO">
+      <ColNames>EVENT_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>EVENT_QUEUE</RefTableName>
+      <RefKeyName>SYS_PK_10103</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="30" parent="7" name="FK_BSHYPO7WXK7SEM5F7HW7HK2GJ">
+      <ColNames>USER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10197</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="31" parent="8" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="8" name="DAY_TURN">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="33" parent="8" name="EVENT_TYPE">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="8" name="STATUS">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="8" name="JOURNAL_ID">
+      <Position>5</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+    </column>
+    <key id="36" parent="8" name="SYS_PK_10103">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="37" parent="8" name="FK_9I67W6A2BUXHU34Q484D3BNWH">
+      <ColNames>JOURNAL_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>JOURNAL</RefTableName>
+      <RefKeyName>SYS_PK_10146</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="38" parent="9" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="39" parent="9" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="9" name="SURNAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="41" parent="9" name="SYS_PK_10109">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="10" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="10" name="LOCATION">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="10" name="GENEROUS_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="45" parent="10" name="SYS_PK_10115">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="46" parent="10" name="FK_SBS2FWVOPC5NX6DBFIQV3XTXP">
+      <ColNames>GENEROUS_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>GENEROUS</RefTableName>
+      <RefKeyName>SYS_PK_10109</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="47" parent="11" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="11" name="EVENT_ID">
+      <Position>2</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="49" parent="11" name="USER_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="50" parent="11" name="SYS_PK_10121">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="51" parent="11" name="FK_2EYW631HN4GXF2KCG715191PA">
+      <ColNames>EVENT_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>EVENT_QUEUE</RefTableName>
+      <RefKeyName>SYS_PK_10103</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="52" parent="11" name="FK_1XDUV98R3KL8SOTEHPUNGYHB2">
+      <ColNames>USER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10197</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="53" parent="12" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="54" parent="12" name="AGE">
+      <Position>2</Position>
+      <DataType>INTEGER(32)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="12" name="NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="12" name="SURNAME">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="57" parent="12" name="SYS_PK_10128">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="13" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="13" name="EVENT_TYPE">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="13" name="IMMIGRANT1_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="13" name="IMMIGRANT2_ID">
+      <Position>4</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="62" parent="13" name="SYS_PK_10136">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="63" parent="13" name="FK_OH19AR12IJJ28R8OTHKJK8QO8">
+      <ColNames>IMMIGRANT1_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>IMMIGRANT</RefTableName>
+      <RefKeyName>SYS_PK_10128</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="64" parent="13" name="FK_RL8U7MMSF6GRN5C3GV21RCSA">
+      <ColNames>IMMIGRANT2_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>IMMIGRANT</RefTableName>
+      <RefKeyName>SYS_PK_10128</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="65" parent="14" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="14" name="IS_IN_QUEUE">
+      <Position>2</Position>
+      <DataType>BOOLEAN(0)|16</DataType>
+    </column>
+    <column id="67" parent="14" name="NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="14" name="PUBLISH_DATE">
+      <Position>4</Position>
+      <DataType>TIMESTAMP(26)|93</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="14" name="UUID">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="14" name="CATEGORY_ID">
+      <Position>6</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="14" name="PUBLISHER_ID">
+      <Position>7</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="72" parent="14" name="SYS_PK_10146">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="73" parent="14" name="FK_8YG6HSABXW2LGQJKBKIJ55QQX">
+      <ColNames>CATEGORY_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>CATEGORY</RefTableName>
+      <RefKeyName>SYS_PK_10092</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="74" parent="14" name="FK_C7PICIB39DL7KXRO2349CNPN9">
+      <ColNames>PUBLISHER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>PUBLISHER</RefTableName>
+      <RefKeyName>SYS_PK_10167</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="75" parent="15" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="76" parent="15" name="HOST_ID">
+      <Position>2</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="15" name="IMMIGRANT_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="78" parent="15" name="SYS_PK_10155">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="79" parent="15" name="FK_7DYLQCM7GMEQC5GHICHR8VHP2">
+      <ColNames>HOST_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>HOST</RefTableName>
+      <RefKeyName>SYS_PK_10115</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="80" parent="15" name="FK_F52D3G36BR692R1YUX9COSYII">
+      <ColNames>IMMIGRANT_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>IMMIGRANT</RefTableName>
+      <RefKeyName>SYS_PK_10128</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="81" parent="16" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="16" name="AMOUNT">
+      <Position>2</Position>
+      <DataType>DOUBLE(64)|8</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="16" name="GENEROUS_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="84" parent="16" name="SYS_PK_10161">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="85" parent="16" name="FK_4ILHM6DSJSJ4C0UAFETC9OVY1">
+      <ColNames>GENEROUS_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>GENEROUS</RefTableName>
+      <RefKeyName>SYS_PK_10109</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="86" parent="17" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="87" parent="17" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="88" parent="17" name="USER_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="89" parent="17" name="SYS_PK_10167">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="90" parent="17" name="FK_ML1XC0AOVQKKM2P1LSSGJKFAS">
+      <ColNames>USER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10197</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="91" parent="18" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="92" parent="18" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="93" parent="18" name="SYS_PK_10172">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="94" parent="19" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="95" parent="19" name="LEVEL">
+      <Position>2</Position>
+      <DataType>INTEGER(32)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="96" parent="19" name="HOST_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="19" name="IMMIGRANT_ID">
+      <Position>4</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="19" name="SKILL_ID">
+      <Position>5</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="99" parent="19" name="SYS_PK_10179">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="100" parent="19" name="FK_24J1LMG3DXHUM14EC6PUIGQGV">
+      <ColNames>HOST_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>HOST</RefTableName>
+      <RefKeyName>SYS_PK_10115</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="101" parent="19" name="FK_H1NMQNIT55QGT8K3MNL4DXNGE">
+      <ColNames>IMMIGRANT_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>IMMIGRANT</RefTableName>
+      <RefKeyName>SYS_PK_10128</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="102" parent="19" name="FK_22SPHDK6SAPPUORKGBTN4M7HQ">
+      <ColNames>SKILL_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>SKILL</RefTableName>
+      <RefKeyName>SYS_PK_10172</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="103" parent="20" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="104" parent="20" name="DATE">
+      <Position>2</Position>
+      <DataType>TIMESTAMP(26)|93</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="105" parent="20" name="CATEGORY_ID">
+      <Position>3</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="106" parent="20" name="USER_ID">
+      <Position>4</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="107" parent="20" name="SYS_PK_10188">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="108" parent="20" name="FK_5N1JNGCES3C64V9DAPEHV1MAE">
+      <ColNames>CATEGORY_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>CATEGORY</RefTableName>
+      <RefKeyName>SYS_PK_10092</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <foreign-key id="109" parent="20" name="FK_TQ3CQ3GMSSS8JJYB2L5SB1O6K">
+      <ColNames>USER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10197</RefKeyName>
+      <RefColNames>ID</RefColNames>
+      <OnDelete>no-action</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="110" parent="21" name="ID">
+      <Position>1</Position>
+      <DataType>BIGINT(64)|-5</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="111" parent="21" name="ENABLED">
+      <Position>2</Position>
+      <DataType>BOOLEAN(0)|16</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="112" parent="21" name="LOGIN_NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="113" parent="21" name="MAIL_ADDRESS">
+      <Position>4</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <column id="114" parent="21" name="PWD">
+      <Position>5</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="115" parent="21" name="ROLE">
+      <Position>6</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="116" parent="21" name="SYS_PK_10197">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
