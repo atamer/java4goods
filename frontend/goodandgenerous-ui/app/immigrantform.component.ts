@@ -12,52 +12,52 @@ import { Rating }    from './components/rating.component';
   moduleId: module.id,
   selector: 'immigrant-form',
   templateUrl: 'immigrantform.component.html',
-  providers:[SkillService]
+  providers: [SkillService]
 })
 export class ImmigrantForm implements OnInit {
 
 
-//value used with custom icons demo above
- private rateValueExample1:number = 5;
- //value used with custom icons demo above
- private rateValueExample2:number = 2;
- //the maximum allowed value
- private maxRateValue:number = 10;
- //contains the current value entred by the user
- private currentRate:number = 7;
- //make the rating component readonly
- private isRatingReadonly:boolean = false;
- private overStar:number;
- private ratingPercent:number;
- public rating:any;
+  //value used with custom icons demo above
+  private rateValueExample1: number = 5;
+  //value used with custom icons demo above
+  private rateValueExample2: number = 2;
+  //the maximum allowed value
+  private maxRateValue: number = 10;
+  //contains the current value entred by the user
+  private currentRate: number = 7;
+  //make the rating component readonly
+  private isRatingReadonly: boolean = false;
+  private overStar: number;
+  private ratingPercent: number;
+  public rating: any;
 
 
-  private ratingStatesItems:any = [
-       {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
-       {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-star-empty'},
-       {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
-       {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
-       {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'}
-   ];
+  private ratingStatesItems: any = [
+    { stateOn: 'glyphicon-star', stateOff: 'glyphicon-ok-circle' },
+    { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-star-empty' },
+    { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle' },
+    { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle' },
+    { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle' }
+  ];
 
   constructor(private skillservice: SkillService) { }
 
 
   ngOnInit(): void {
     this.skillservice.getSkills().subscribe(
-                               comments => {
+      comments => {
 
-                                            console.log(comments);
-                                          },
-                                err => {
-                                    // Log errors if any
-                                    console.log(err);
-                                });
+        console.log(comments);
+      },
+      err => {
+        // Log errors if any
+        console.log(err);
+      });
 
   }
 
   powers = ['Really Smart', 'Super Flexible',
-             'Super Hot', 'Weather Changer'];
+    'Super Hot', 'Weather Changer'];
 
   model = new Immigrant();
 
@@ -65,30 +65,30 @@ export class ImmigrantForm implements OnInit {
 
   onSubmit() { this.submitted = true; }
 
- // TODO: Remove this when we're done
- get diagnostic() { return JSON.stringify(this.model); }
+  // TODO: Remove this when we're done
+  get diagnostic() { return JSON.stringify(this.model); }
 
   newHero() {
     this.model = new Immigrant();
   }
- //////// NOT SHOWN IN DOCS ////////
+  //////// NOT SHOWN IN DOCS ////////
 
- // Reveal in html:
- //   Name via form.controls = {{showFormControls(heroForm)}}
- showFormControls(form: any) {
+  // Reveal in html:
+  //   Name via form.controls = {{showFormControls(heroForm)}}
+  showFormControls(form: any) {
 
-   return form && form.controls['name'] &&
-   form.controls['name'].value; // Dr. IQ
- }
+    return form && form.controls['name'] &&
+      form.controls['name'].value; // Dr. IQ
+  }
 
- //reset the rating value to null
+  //reset the rating value to null
   private resetRatingStar() {
-      this.overStar = null;
+    this.overStar = null;
   }
   //call this method when over a star
-  private overStarDoSomething(value:number):void {
-      this.overStar = value;
-      this.ratingPercent = 100 * (value / this.maxRateValue);
+  private overStarDoSomething(value: number): void {
+    this.overStar = value;
+    this.ratingPercent = 100 * (value / this.maxRateValue);
   };
 
 }

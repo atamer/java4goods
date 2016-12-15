@@ -11,12 +11,12 @@ import { AppComponent }  from './app.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'immigrantform', component: ImmigrantForm },
-  { path: 'hostingform',   component: HostingForm },
-  { path: 'donationform',   component: DonationForm }
+  { path: 'hostingform', component: HostingForm },
+  { path: 'donationform', component: DonationForm }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -13,8 +13,8 @@ import { Rating } from './components/rating.component';
 
 
 @NgModule({
-  imports:      [ BrowserModule ,AppRoutingModule,HttpModule,FormsModule],
-  declarations: [ AppComponent,DashboardComponent,HostingForm, ImmigrantForm, DonationForm, Rating ],
-  bootstrap:    [ AppComponent ],
+  imports: [BrowserModule, AppRoutingModule, HttpModule, FormsModule],
+  declarations: [AppComponent, DashboardComponent, HostingForm, ImmigrantForm, DonationForm, Rating],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
